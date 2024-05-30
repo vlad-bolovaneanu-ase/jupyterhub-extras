@@ -1,11 +1,12 @@
 {% extends "templates/home.html" %}
-    {% if custom["n_active_users"](user) != None and custom["n_active_users"](user) != '' %}
-    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + custom["n_active_users"](user) + " active users." %}
-    {% else %}
-    	{% set announcementInitial = "Hello, " + user.name + "!" %}
-    {% endif %}
+{% if custom["n_active_users"](user) != None and custom["n_active_users"](user) != '' %}
+   {% set greeting = "Hello, " + user.name + "! There are currently " + custom["n_active_users"](user) + " active users." %}
+{% else %}
+   {% set greeting = "Hello, " + user.name + "!" %}
+{% endif %}
 
 {% block main %}
+<h2>{{ greeting }}</h2>
 <ul class="list-group">
     <li class="list-group-item active">General resource management rules:</li>
     <li class="list-group-item">You are guaranteed 512 GB of persistent storage (even after environment restart or termination).</li>
