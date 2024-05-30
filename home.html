@@ -20,7 +20,7 @@
 	    <li class="list-group-item">Intel MKL (check <code>MKLROOT</code> env var)</li>
 	    <li class="list-group-item">CUDA 12.2 toolkit (executables, such as <code>nvcc</code>, are in PATH)</li>
 	</ul>
-    <li class="list-group-item">If you require any application in your workflow, contact {% contact_emaiil %}</li>
+	<li class="list-group-item">If you require any application in your workflow, contact {{ contact_email }}.</li>
 </ul>
 
 {{ super() }}
@@ -32,7 +32,7 @@
 	      <li class="list-group-item">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
 	  {% endif %}
 	  {% if 'custom:kube-dashboard' in user.scopes %}
-	     <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {% contact_email %}.</li>
+	  <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ contact_email }}.</li>
 	  {% endif %}
      </ol>
 {% endif %}
