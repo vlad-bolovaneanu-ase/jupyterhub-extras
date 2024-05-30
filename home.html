@@ -25,7 +25,7 @@
 
 {{ super() }}
 
-{% if custom["has_special_right"]s %}
+{% if custom["has_special_rights"] %}
      <h4 class="mb-1">You have been assigned to:</h4>
      <ol class="list-group list-group-numbered">
 	  {% if "custom:grafana-dashboard" in user.scopes %}
