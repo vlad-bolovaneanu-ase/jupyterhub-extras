@@ -1,0 +1,41 @@
+{% extends "templates/home.html" %}
+    {% if n_active_users != None and n_active_users != '' %}
+    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + n_active_users + " active users."}
+    {% else %}
+    	{% set announcementInitial = "Hello, " + user.name + "!" %}
+    {% endif %}
+
+{% block main %}
+<ul class="list-group">
+    <li class="list-group-item active">General resource management rules:</li>
+    <li class="list-group-item">You are guaranteed 512 GB of persistent storage (even after environment restart or termination).</li>
+    <li class="list-group-item">Although there is no direct limit, at most 6 concurrent users are supported. After this limit, depending on resource utilization, CPU workloads my lag for multiple members, GPU environments may not be available, and some users may even see their environment killed automatically.</li>
+    <li class="list-group-item">Resources are reserved for 24 hours. Make sure to design workflows with checkpointing in mind.</li>
+    <li class="list-group-item">Depending on your environment choices, you will notive one (or both) conda environments that persist accross restarts: scipy-env (for data science environment) and pytorch-env (for CUDA-enabled environment). Do not install packes in the base environment if you care about package persistance!</li>
+    <li class="list-group-item">Run <code>source conda.shell</code> in Terminal if you would like to activate a specific conda environment.</li>
+    <li class="list-group-item"><code>mamba</code> is also available for installing packages, and should be faster than conda, but it is not tested.</li>
+    <li class="list-group-item">R users can access R Studio by selecting the specific entry in Launcher. Note than new packages will be persisted only if <code>.libPaths()</code> returns '/home/jovyan/.R/library'. In our tests, we had to quit the first R Studio session before changes took effect.</li>
+    <li class="list-group-item">CUDA images have extra features for packages requiring compilation:</li>
+        <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Intel MKL (check <code>MKLROOT</code> env var)</li>
+	    <li class="list-group-item">CUDA 12.2 toolkit (executables, such as <code>nvcc</code>, are in PATH)</li>
+	</ul>
+    <li class="list-group-item">If you require any application in your workflow, contact {% contact_emaiil %}</li>
+</ul>
+
+{{ super() }}
+
+{% if has_special_rights %}
+     <h4 class="mb-1">You have been assigned to:</h4>
+     <ol class="list-group list-group-numbered">
+	  {% if 'custom:grafana-dashboard' in user.scopes %}
+	      <li class="list-group-item">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
+	  {% endif %}
+	  {% if 'custom:kube-dashboard' in user.scopes %}
+	     <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {% contact_email %}.</li>
+	  {% endif %}
+     </ol>
+{% endif %}
+
+<small class="text-muted">We reserve the right to change any of the above specifications if user abuse is found</small>
+{% endblock main %}
