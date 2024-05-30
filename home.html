@@ -1,6 +1,6 @@
 {% extends "templates/home.html" %}
-    {% if custom["n_active_users"] != None and custom["n_active_users"] != '' %}
-    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + custom["n_active_users"] + " active users." %}
+    {% if custom["n_active_users"](user) != None and custom["n_active_users"](user) != '' %}
+    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + custom["n_active_users"](user) + " active users." %}
     {% else %}
     	{% set announcementInitial = "Hello, " + user.name + "!" %}
     {% endif %}
@@ -25,7 +25,7 @@
 
 {{ super() }}
 
-{% if custom["has_special_rights"] %}
+{% if custom["has_special_rights"](user) %}
      <h4 class="mb-1">You have been assigned to:</h4>
      <ol class="list-group list-group-numbered">
 	  {% if "custom:grafana-dashboard" in user.scopes %}
