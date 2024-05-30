@@ -1,6 +1,6 @@
 {% extends "templates/home.html" %}
-    {% if n_active_users != None and n_active_users != '' %}
-    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + n_active_users + " active users." %}
+    {% if custom["n_active_users"] != None and custom["n_active_users"] != '' %}
+    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + custom["n_active_users"] + " active users." %}
     {% else %}
     	{% set announcementInitial = "Hello, " + user.name + "!" %}
     {% endif %}
@@ -20,19 +20,19 @@
 	    <li class="list-group-item">Intel MKL (check <code>MKLROOT</code> env var)</li>
 	    <li class="list-group-item">CUDA 12.2 toolkit (executables, such as <code>nvcc</code>, are in PATH)</li>
 	</ul>
-	<li class="list-group-item">If you require any application in your workflow, contact {{ contact_email }}.</li>
+	<li class="list-group-item">If you require any application in your workflow, contact {{ custom["contact_email"] }}.</li>
 </ul>
 
 {{ super() }}
 
-{% if has_special_rights %}
+{% if custom["has_special_right"]s %}
      <h4 class="mb-1">You have been assigned to:</h4>
      <ol class="list-group list-group-numbered">
-	  {% if 'custom:grafana-dashboard' in user.scopes %}
+	  {% if "custom:grafana-dashboard" in user.scopes %}
 	      <li class="list-group-item">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
 	  {% endif %}
-	  {% if 'custom:kube-dashboard' in user.scopes %}
-	  <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ contact_email }}.</li>
+	  {% if "custom:kube-dashboard" in user.scopes %}
+	  <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ custom["contact_email"] }}.</li>
 	  {% endif %}
      </ol>
 {% endif %}
