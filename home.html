@@ -1,6 +1,6 @@
 {% extends "templates/home.html" %}
     {% if n_active_users != None and n_active_users != '' %}
-    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + n_active_users + " active users."}
+    	{% set announcementInitial = "Hello, " + user.name + "! There are currently " + n_active_users + " active users." %}
     {% else %}
     	{% set announcementInitial = "Hello, " + user.name + "!" %}
     {% endif %}
