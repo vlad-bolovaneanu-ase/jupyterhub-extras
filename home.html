@@ -70,21 +70,21 @@
 
     <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-75 justify-content-between">
-            <h4 class="mb-1">We wish you good luck in your research!</h4>
+            <h4 class="mb-1 leading">We wish you good luck in your research!</h4>
     </div>
     </a>
 <small class="text-muted">If you require any application in your workflow, contact {{ contact_email }}.</small>
 </div>
 
 {% if has_special_rights(user) %}
-     <ol class="list-group list-group-numbered">
-          <h4 class="lead">You have been assigned to:</h4>
+     <ol class="list-group">
+          <li class="lead list-group-item list-group-item-action active" aria-current="true">You have been assigned to:</li>
 	  {% if get_dashboard_role(user) != None %}
-	      <li class="list-group-item">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
-	      <li class="list-group-item">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ contact_email }}.</li>
+	      <li class="list-group-item mb-2">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
+	      <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ contact_email }}.</li>
 	  {% endif %}
      </ol>
 {% endif %}
 
-<small class="text-muted">We reserve the right to change any of the above specifications if user abuse is found</small>
+<small class="text-muted">We reserve the right to change any of the above specifications.</small>
 {% endblock main %}
