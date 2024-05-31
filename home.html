@@ -12,35 +12,61 @@
 
 
 <h3><center>General resource management rules:</center></h3>
-<div class="container-fluid">
-    <div class="row justify-content-md-center">
-	<div class="col-md-auto">You are guaranteed 512 GB of persistent storage (even after environment restart or termination).
-	</div>
-        <div class="col-md-auto">Resources are reserved for 24 hours. Make sure to design workflows with checkpointing in mind.
-	</div>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+    	<h5 class="mb-1">Storage space</h5>
     </div>
-    <div class="row justify-content-md-center">
-	<div class="col-md-auto">Although there is no direct limit, at most 6 concurrent users are supported. After this limit, depending on resource utilization, CPU workloads my lag for multiple members, GPU environments may not be available, and some users may even see their environment killed automatically.
-	</div>
+    <p class="mb-1">You are guaranteed 512 GB of persistent storage.</p>
+    <small>Only home directory applies.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+	<h5 class="mb-1">Timed usage</h5>
     </div>
-    <div class="row justify-content-md-center">
-	<div class="col-md-auto">Depending on your environment choices, you will notive one (or both) conda environments that persist accross restarts: scipy-env (for data science environment) and pytorch-env (for CUDA-enabled environment). Do not install packes in the base environment if you care about package persistance!
-	</div>
+    <p class="mb-1">Resources are reserved for 24 hours. You can start another session immediately after.</p>
+    <small>Make sure to design workflows with checkpointing in mind.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+	<h5 class="mb-1">User limit</h5>
     </div>
-    <div class="row justify-content-md-center">
-	<div class="col-md-auto">Run <code>source conda.shell</code> in Terminal if you would like to activate a specific conda environment. <code>mamba</code> is also available for installing packages, and should be faster than conda, but it is not tested.
-	</div>
-        <div class="col-md-auto">R users can access R Studio by selecting the specific entry in Launcher. Note than new packages will be persisted only if <code>.libPaths()</code> returns '/home/jovyan/.R/library'. In our tests, we had to quit the first R Studio session before changes took effect.
-	</div>
+    <p class="mb-1">Although there is no imposed limit, at most 6 concurrent users are supported. After this limit, depending on resource utilization, CPU workloads my lag for multiple members, GPU environments may not be available.</p>
+    <small>Some users may experience environment termination.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+    	<h5 class="mb-1">Python persistent environments</h5>
     </div>
-    <div class="row justify-content-md-center">
-	<div class="col-md-auto">CUDA images have extra features for packages requiring compilation:</li>
-            <ul class="list-group list-group-flush">
-	        <li class="list-group-item">Intel MKL (check <code>MKLROOT</code> env var)</li>
-	        <li class="list-group-item">CUDA 12.2 toolkit (executables, such as <code>nvcc</code>, are in PATH)</li>
-	    </ul>
-	</div>
+    <p class="mb-1">Depending on your environment choices, you will notive one (or both) conda environments that persist accross restarts: scipy-env (for data science environment) and pytorch-env (for CUDA-enabled environment).</p>
+    <small><b>Do not install packes in the base environment if you care about package persistance.</b></small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Activate conda environments</h5>
     </div>
+    <p class="mb-1">Run <code>source conda.shell</code> in Terminal if you would like to activate a specific conda environment.</p>
+    <small><code>mamba</code> is also available for installing packages, and should be faster than conda, but it is not tested.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+	<h5 class="mb-1">R users</h5>
+    </div>
+    <p class="mb-1">R users should choose their dedicated environment. R Studio can be accessed by selecting the specific entry in Launcher. Note than new packages will be persisted only if <code>.libPaths()</code> returns '/home/jovyan/.R/library'.</p> 
+    <small>In our tests, we had to quit the first R Studio session before changes took effect.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+	<h5 class="mb-1">CUDA images</h5>
+    </div>
+    <p class="mb-1">CUDA images have extra features for packages requiring compilation:</p>
+        <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Intel MKL (check <code>MKLROOT</code> env var)</li>
+	    <li class="list-group-item">CUDA 12.2 toolkit (executables, such as <code>nvcc</code>, are in PATH)</li>
+	</ul>
+    </a>
+</div>
+<p class="mb-1">We wish you good luck in your research!</p>
 <small class="text-muted">If you require any application in your workflow, contact {{ contact_email }}.</small>
 </div>
 
