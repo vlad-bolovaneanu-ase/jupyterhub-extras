@@ -78,7 +78,7 @@
 </div>
 
 {% if has_special_rights(user) %}
-     <ol class="list-group text-break">
+     <ol class="list-group d-flex w-100 flex-wrap">
           <li class="lead list-group-item list-group-item-action active" aria-current="true">Additionally, you have been assigned to:</li>
 	  {% if 'custom:grafana-dashboard' in get_dashboard_role_scopes(user)  %}
 	      <li class="list-group-item mb-2">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
