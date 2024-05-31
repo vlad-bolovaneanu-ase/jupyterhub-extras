@@ -1,6 +1,6 @@
 {% extends "templates/home.html" %}
 {% if n_active_users(user) != '' %}
-   {% set greeting = "Hello, " + user.name + "! There are currently " + n_active_users(user) + " active users." %}
+   {% set greeting = "Hello, " + user.name + "! There are currently " + n_active_users(user) + " active users (figure updated every minute)." %}
 {% else %}
    {% set greeting = "Hello, " + user.name + "!" %}
 {% endif %}
@@ -33,7 +33,7 @@
     <div class="d-flex w-75 justify-content-between">
 	 <h5 class="mb-1"><b>User limit</b></h5>
     </div>
-    <p class="mb-1">Although there is no imposed limit, at most 6 concurrent users are supported. After this limit, depending on resource utilization, CPU workloads my lag for multiple members, GPU environments may not be available.</p>
+    <p class="mb-1">Although there is no imposed limit, at most 6 concurrent users are supported. After this limit, depending on resource utilization, CPU workloads may lag for some users, and GPU environments may not be available even earlier (e.g. 3 users allocate all GPUs).</p>
     <small>Some users may experience environment termination.</small>
     </a>
     <a href="#" class="list-group-item list-group-item-action">
@@ -71,7 +71,7 @@
 
     <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-75 justify-content-between">
-            <h4 class="mb-1 leading">We wish you good luck in your research!</h4>
+            <h3 class="mb-1 leading">We wish you good luck in your research!</h3>
     </div>
     </a>
 <small class="text-muted">If you require any application in your workflow, contact {{ contact_email }}.</small>
