@@ -84,7 +84,7 @@
 	      <li class="list-group-item mb-2">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
 	  {% endif %}
 	  {% if 'custom:kube-dashboard' in get_dashboard_role_scopes(user) %}
-	  <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Use the following token for authentication:<br><code>{{ dashboard_token }}</code>.</li>
+	  <li class="list-group-item mb-2 text-break">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Use the following token for authentication:<br>{{ dashboard_token }}.</li>
 	  {% endif %}
      </ol>
 {% endif %}
