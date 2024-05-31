@@ -81,7 +81,7 @@
           <li class="lead list-group-item list-group-item-action active" aria-current="true">You have been assigned to:</li>
 	  {% if get_dashboard_role(user) != None %}
 	      <li class="list-group-item mb-2">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
-	      <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Request a token from {{ contact_email }}.</li>
+	      <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Use the following token for authentication:<br><code>{{ dashboard_token }}</code>.</li>
 	  {% endif %}
      </ol>
 {% endif %}
