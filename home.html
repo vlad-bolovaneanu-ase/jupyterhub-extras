@@ -78,13 +78,13 @@
 </div>
 
 {% if has_special_rights(user) %}
-     <ol class="list-group">
+     <ol class="list-group text-break">
           <li class="lead list-group-item list-group-item-action active" aria-current="true">Additionally, you have been assigned to:</li>
 	  {% if 'custom:grafana-dashboard' in get_dashboard_role_scopes(user)  %}
 	      <li class="list-group-item mb-2">Acces <a href="https://pnrr-ai.ase.ro/grafana">Grafana dashboard</a>. Use your Github account for authentication.</li>
 	  {% endif %}
 	  {% if 'custom:kube-dashboard' in get_dashboard_role_scopes(user) %}
-	  <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Use the following token for authentication:<br><p class="text-break"><code>{{ dashboard_token }}</code></p>.</li>
+	  <li class="list-group-item mb-2">Access <a href="https://pnrr-ai.ase.ro/kube-dashboard">Kubernetes dashboard</a>. Use the following token for authentication:<br><code>{{ dashboard_token }}</code>.</li>
 	  {% endif %}
      </ol>
 {% endif %}
